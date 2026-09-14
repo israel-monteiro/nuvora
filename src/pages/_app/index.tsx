@@ -1,16 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SummaryCard } from "../../components/SummaryCards";
 import { ArrowDown, ArrowUp, CalendarDays, ChevronDown, Plus, Wallet } from "lucide-react";
+import { useContext } from "react";
+import { FinanceContext } from "../../contexts/FinanceContext";
+import { RecentTransactions } from "../../components/RecentTransactions";
 
 export const Route = createFileRoute("/_app/")({
     component: Dashboard,
 });
 
 function Dashboard() {
-
+    const { totalIncome, totalExpenses, balance } = useContext(FinanceContext);
     return (
         <>
-            <div className="min-h-screen bg-gray-50 p-8">
+            <div className="min-h-screen bg-gray-50 p-8 flex flex-col gap-6">
                 <header className="mb-8 flex items-center justify-between">
                     <div>
                         <h1 className="text-4xl font-bold tracking-tight text-gray-950">Dashboard</h1>
@@ -35,25 +38,28 @@ function Dashboard() {
                     <SummaryCard
                         icon={<Wallet />}
                         title={"Saldo atual"}
-                        value={3250}
+                        value={balance}
                         description={"Seu saldo neste mês"}
                     />
                     <SummaryCard
                         icon={<ArrowUp />}
                         title={"Receitas"}
-                        value={5000}
+                        value={totalIncome}
                         description={"Total de entradas no mês"}
                         variant="income"
                     />
                     <SummaryCard
                         icon={<ArrowDown />}
                         title={"Despesas"}
-                        value={1750}
+                        value={totalExpenses}
                         description={"Total de saídas no mês"}
                         variant="expense"
                     />
                 </div>
-                <div></div>
+                <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                    <ExpensesByCategory />
+                    <RecentTransactions />
+                </div>
             </div>
         </>
     );
