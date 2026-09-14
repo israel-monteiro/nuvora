@@ -1,5 +1,6 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { Sidebar } from "../../components/Sidebar";
+import { Footer } from "../../components/Footer";
 
 export const Route = createFileRoute("/_app")({
     component: AppLayout,
@@ -7,14 +8,16 @@ export const Route = createFileRoute("/_app")({
 
 function AppLayout() {
     return (
-        <div>
-            <div className="flex min-h-screen">
-                <Sidebar />
+        <>
+            <Sidebar />
 
-                <main className="min-w-0 flex-1">
+            <div className="ml-65 flex min-h-screen flex-col">
+                <main className="min-w-0 flex-1 bg-gray-50">
                     <Outlet />
                 </main>
+
+                <Footer />
             </div>
-        </div>
+        </>
     );
 }

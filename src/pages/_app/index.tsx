@@ -14,7 +14,7 @@ function Dashboard() {
     const { totalIncome, totalExpenses, balance } = useContext(FinanceContext);
     return (
         <>
-            <div className="min-h-screen bg-gray-50 p-8 flex flex-col gap-6">
+            <div className=" p-8 flex flex-col gap-6">
                 <header className="mb-8 flex items-center justify-between">
                     <div>
                         <h1 className="text-4xl font-bold tracking-tight text-gray-950">Dashboard</h1>

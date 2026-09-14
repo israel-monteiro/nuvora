@@ -13,7 +13,7 @@ declare module "@tanstack/react-router" {
 function App() {
     return (
         <FinanceProvider>
-            <RouterProvider router={router} />;
+            <RouterProvider router={router} />
         </FinanceProvider>
     );
 }
