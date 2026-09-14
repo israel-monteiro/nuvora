@@ -1,0 +1,52 @@
+import type { Transaction } from "../interfaces/transaction";
+
+export const transactions: Transaction[] = [
+    {
+        id: 1,
+        description: "Supermercado",
+        value: 320,
+        type: "expense",
+        categoryId: 1,
+        date: "2026-09-12",
+    },
+    {
+        id: 2,
+        description: "Uber",
+        value: 80,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-09-10",
+    },
+    {
+        id: 3,
+        description: "Cinema",
+        value: 100,
+        type: "expense",
+        categoryId: 3,
+        date: "2026-09-08",
+    },
+    {
+        id: 4,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 4,
+        date: "2026-09-05",
+    },
+    {
+        id: 5,
+        description: "Uber",
+        value: 80,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-09-10",
+    },
+    {
+        id: 6,
+        description: "Uber",
+        value: 80,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-09-10",
+    },
+];

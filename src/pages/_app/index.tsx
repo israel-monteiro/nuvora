@@ -7,6 +7,7 @@ export const Route = createFileRoute("/_app/")({
 });
 
 function Dashboard() {
+
     return (
         <>
             <div className="min-h-screen bg-gray-50 p-8">
