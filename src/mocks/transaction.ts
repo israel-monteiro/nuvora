@@ -49,4 +49,12 @@ export const transactions: Transaction[] = [
         categoryId: 2,
         date: "2026-09-10",
     },
+    {
+        id: 7,
+        description: "GTA 6",
+        value: 450,
+        type: "expense",
+        categoryId: 5,
+        date: "2026-09-10",
+    },
 ];

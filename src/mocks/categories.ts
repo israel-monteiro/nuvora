@@ -19,4 +19,9 @@ export const categories = [
         name: "Salário",
         color: "#22c55e",
     },
+    {
+        id: 5,
+        name: "Video Game",
+        color: "#889be8",
+    },
 ];

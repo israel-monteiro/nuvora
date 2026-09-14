@@ -24,9 +24,12 @@ export const FinanceProvider = ({ children }: FinanceProviderProps) => {
 
         const total = categoryExpenses.reduce((sum, transaction) => sum + transaction.value, 0);
 
+        const percentage = totalExpenses > 0 ? (total / totalExpenses) * 100 : 0;
+
         return {
             ...category,
             value: total,
+            percentage,
         };
     });
 

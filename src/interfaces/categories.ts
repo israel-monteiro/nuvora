@@ -6,4 +6,5 @@ export interface Category {
 
 export interface ExpenseByCategory extends Category {
     value: number;
+    percentage: number
 }

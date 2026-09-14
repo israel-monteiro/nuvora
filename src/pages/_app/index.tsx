@@ -4,6 +4,7 @@ import { ArrowDown, ArrowUp, CalendarDays, ChevronDown, Plus, Wallet } from "luc
 import { useContext } from "react";
 import { FinanceContext } from "../../contexts/FinanceContext";
 import { RecentTransactions } from "../../components/RecentTransactions";
+import { ExpensesByCategory } from "../../components/ExpensesByCategory";
 
 export const Route = createFileRoute("/_app/")({
     component: Dashboard,
@@ -56,7 +57,7 @@ function Dashboard() {
                         variant="expense"
                     />
                 </div>
-                <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 min-[1460px]:grid-cols-2">
                     <ExpensesByCategory />
                     <RecentTransactions />
                 </div>

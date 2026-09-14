@@ -6,6 +6,10 @@ import { TransactionItem } from "../TransactionItem";
 export const RecentTransactions = () => {
     const { transactions, categories } = useContext(FinanceContext);
 
+    const recentTransactions = [...transactions]
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 5);
+
     return (
         <section className="w-full rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
             <div className="mb-6">
@@ -15,7 +19,7 @@ export const RecentTransactions = () => {
             </div>
 
             <div className="flex flex-col gap-4">
-                {transactions.map((transaction) => (
+                {recentTransactions.map((transaction) => (
                     <TransactionItem key={transaction.id} transaction={transaction} categories={categories} />
                 ))}
             </div>
