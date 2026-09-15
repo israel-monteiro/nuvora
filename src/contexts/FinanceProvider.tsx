@@ -13,6 +13,10 @@ export const FinanceProvider = ({ children }: FinanceProviderProps) => {
     const [transactions, setTransactions] = useState<Transaction[]>(mockTransactions);
     const [categories, setCategories] = useState<Category[]>(mockCategories);
 
+    const currentDate = new Date();
+    const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
+    const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
+    
     const income = transactions.filter((transaction) => transaction.type === "income");
     const totalIncome = income.reduce((sum, transaction) => sum + transaction.value, 0);
 
@@ -33,11 +37,30 @@ export const FinanceProvider = ({ children }: FinanceProviderProps) => {
         };
     });
 
+    const filteredTransactions = transactions.filter((transaction) => {
+        const [year, month] = transaction.date.split("-").map(Number);
+
+        return month === selectedMonth + 1 && year === selectedYear;
+    });
+
     const balance = totalIncome - totalExpenses;
 
     return (
         <FinanceContext.Provider
-            value={{ transactions, categories, expenses, expensesByCategory, totalIncome, totalExpenses, balance }}
+            value={{
+                transactions,
+                categories,
+                expenses,
+                expensesByCategory,
+                totalIncome,
+                totalExpenses,
+                balance,
+                selectedMonth,
+                setSelectedMonth,
+                selectedYear,
+                setSelectedYear,
+                filteredTransactions,
+            }}
         >
             {children}
         </FinanceContext.Provider>

@@ -11,7 +11,7 @@ function AppLayout() {
         <>
             <Sidebar />
 
-            <div className="ml-65 flex min-h-screen flex-col">
+            <div className="flex min-h-screen flex-col lg:ml-65">
                 <main className="min-w-0 flex-1 bg-gray-50">
                     <Outlet />
                 </main>

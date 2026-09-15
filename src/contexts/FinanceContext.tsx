@@ -10,6 +10,11 @@ interface FinanceContext {
     totalIncome: number;
     totalExpenses: number;
     balance: number;
+    selectedMonth: number;
+    selectedYear: number;
+    setSelectedMonth: (month: number) => void;
+    setSelectedYear: (year: number) => void;
+    filteredTransactions: Transaction[];
 }
 
 export const FinanceContext = createContext({} as FinanceContext);

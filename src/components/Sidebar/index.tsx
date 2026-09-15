@@ -4,7 +4,7 @@ import { House, ArrowLeftRight, Tag, Settings, User } from "lucide-react";
 export const Sidebar = () => {
     return (
         <>
-            <aside className="fixed inset-y-0 left-0 flex w-65 flex-col justify-between border-r border-slate-200 bg-white px-5 py-6 shadow-sm">
+            <aside className="fixed inset-y-0 left-0 hidden w-65 flex-col justify-between border-r border-slate-200 bg-white px-5 py-6 shadow-sm lg:flex">
                 <div>
                     <a href="/" className="mb-8 flex items-center gap-3 px-2">
                         <img src={logoNuvora} alt="Nuvora" className="w-10" />
@@ -45,7 +45,6 @@ export const Sidebar = () => {
                         </ul>
                     </nav>
                 </div>
-
                 <div className="border-t border-slate-200 pt-5">
                     <a
                         href="/configuracoes"
