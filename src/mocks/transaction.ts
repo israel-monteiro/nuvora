@@ -1,8 +1,163 @@
 import type { Transaction } from "../interfaces/transaction";
 
 export const transactions: Transaction[] = [
+    // 2026
+
+    // Janeiro
     {
         id: 1,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-01-05",
+    },
+    {
+        id: 2,
+        description: "Supermercado",
+        value: 345,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-01-14",
+    },
+
+    // Fevereiro
+    {
+        id: 3,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-02-05",
+    },
+    {
+        id: 4,
+        description: "Academia",
+        value: 100,
+        type: "expense",
+        categoryId: 3,
+        date: "2026-02-12",
+    },
+    {
+        id: 5,
+        description: "Cinema",
+        value: 75,
+        type: "expense",
+        categoryId: 5,
+        date: "2026-02-21",
+    },
+
+    // Março
+    {
+        id: 6,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-03-05",
+    },
+
+    // Abril
+    {
+        id: 7,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-04-05",
+    },
+    {
+        id: 8,
+        description: "Combustível",
+        value: 175,
+        type: "expense",
+        categoryId: 4,
+        date: "2026-04-16",
+    },
+
+    // Maio
+    {
+        id: 9,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-05-05",
+    },
+    {
+        id: 10,
+        description: "Restaurante",
+        value: 135,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-05-18",
+    },
+    {
+        id: 11,
+        description: "Farmácia",
+        value: 82.5,
+        type: "expense",
+        categoryId: 3,
+        date: "2026-05-24",
+    },
+
+    // Junho
+    {
+        id: 12,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-06-05",
+    },
+    {
+        id: 13,
+        description: "Streaming",
+        value: 39.9,
+        type: "expense",
+        categoryId: 5,
+        date: "2026-06-17",
+    },
+
+    // Julho
+    {
+        id: 14,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-07-05",
+    },
+
+    // Agosto
+    {
+        id: 15,
+        description: "Salário",
+        value: 5000,
+        type: "income",
+        categoryId: 1,
+        date: "2026-08-05",
+    },
+    {
+        id: 16,
+        description: "Supermercado",
+        value: 350,
+        type: "expense",
+        categoryId: 2,
+        date: "2026-08-12",
+    },
+    {
+        id: 17,
+        description: "Combustível",
+        value: 190,
+        type: "expense",
+        categoryId: 4,
+        date: "2026-08-22",
+    },
+
+    // Setembro - 16 movimentações
+    {
+        id: 18,
         description: "Salário",
         value: 5000,
         type: "income",
@@ -10,7 +165,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-05",
     },
     {
-        id: 2,
+        id: 19,
         description: "Supermercado",
         value: 320,
         type: "expense",
@@ -18,7 +173,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-08",
     },
     {
-        id: 3,
+        id: 20,
         description: "Academia",
         value: 100,
         type: "expense",
@@ -26,7 +181,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-10",
     },
     {
-        id: 4,
+        id: 21,
         description: "Combustível",
         value: 180,
         type: "expense",
@@ -34,7 +189,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-12",
     },
     {
-        id: 5,
+        id: 22,
         description: "Restaurante",
         value: 120,
         type: "expense",
@@ -42,7 +197,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-13",
     },
     {
-        id: 6,
+        id: 23,
         description: "Cinema",
         value: 80,
         type: "expense",
@@ -50,7 +205,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-15",
     },
     {
-        id: 7,
+        id: 24,
         description: "Roupas",
         value: 250,
         type: "expense",
@@ -58,7 +213,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-18",
     },
     {
-        id: 8,
+        id: 25,
         description: "Freelance",
         value: 800,
         type: "income",
@@ -66,7 +221,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-20",
     },
     {
-        id: 9,
+        id: 26,
         description: "Padaria",
         value: 45,
         type: "expense",
@@ -74,7 +229,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-22",
     },
     {
-        id: 10,
+        id: 27,
         description: "Consulta",
         value: 200,
         type: "expense",
@@ -82,7 +237,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-25",
     },
     {
-        id: 11,
+        id: 28,
         description: "Internet",
         value: 119.9,
         type: "expense",
@@ -90,7 +245,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-26",
     },
     {
-        id: 12,
+        id: 29,
         description: "Farmácia",
         value: 85.5,
         type: "expense",
@@ -98,7 +253,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-27",
     },
     {
-        id: 13,
+        id: 30,
         description: "Delivery",
         value: 62.9,
         type: "expense",
@@ -106,7 +261,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-28",
     },
     {
-        id: 14,
+        id: 31,
         description: "Freelance",
         value: 1250,
         type: "income",
@@ -114,7 +269,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-28",
     },
     {
-        id: 15,
+        id: 32,
         description: "Estacionamento",
         value: 30,
         type: "expense",
@@ -122,7 +277,7 @@ export const transactions: Transaction[] = [
         date: "2026-09-29",
     },
     {
-        id: 16,
+        id: 33,
         description: "Streaming",
         value: 39.9,
         type: "expense",
