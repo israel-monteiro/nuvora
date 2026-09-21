@@ -14,9 +14,7 @@ export const PageHeader = ({ title, subtitle, children }: PageHeaderProps) => {
             </div>
 
             {children && (
-                <div className="flex w-full items-center gap-4 max-[376px]:flex-col max-[375px]:items-stretch sm:w-auto">
-                    {children}
-                </div>
+                <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:items-center">{children}</div>
             )}
         </header>
     );

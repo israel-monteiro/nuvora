@@ -17,14 +17,14 @@ function Dashboard() {
     const { totalIncome, totalExpenses, balance } = useContext(FinanceContext);
     return (
         <>
-            <div className=" p-8 flex flex-col gap-6">
+            <div className="flex flex-col gap-6 px-5 py-8 sm:px-8">
                 <PageHeader title="Dashboard" subtitle="Visão geral das suas finanças">
                     <CalendarButton />
 
                     <NewTransactionButton />
                 </PageHeader>
 
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
                     <SummaryCard
                         icon={<Wallet />}
                         title={"Saldo atual"}
@@ -46,7 +46,7 @@ function Dashboard() {
                         variant="expense"
                     />
                 </div>
-                <div className="grid grid-cols-1 gap-6 min-[1460px]:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                     <ExpensesByCategory />
                     <RecentTransactions />
                 </div>

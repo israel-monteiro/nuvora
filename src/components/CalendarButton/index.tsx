@@ -15,7 +15,7 @@ export const CalendarButton = () => {
             <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full cursor-pointer items-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-700 lg:w-52"
+                className="flex w-full cursor-pointer items-center rounded-lg border border-gray-200 bg-white px-5 py-3 text-sm font-medium text-gray-700"
             >
                 <CalendarDays className="mr-3 size-5 shrink-0" />
 
@@ -27,7 +27,7 @@ export const CalendarButton = () => {
             </button>
 
             {isOpen && (
-                <div className="absolute right-0 top-full z-10 mt-2 w-full rounded-lg border border-gray-200 bg-white p-2 shadow-lg lg:w-52">
+                <div className="absolute right-0 top-full z-10 mt-2 w-full rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
                     <div className="flex items-center justify-between px-2 py-2">
                         <button
                             type="button"
