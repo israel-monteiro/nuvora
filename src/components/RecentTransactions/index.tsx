@@ -1,11 +1,15 @@
 import { ArrowRight } from "lucide-react";
-import { useContext } from "react";
-import { FinanceContext } from "../../contexts/FinanceContext";
 import { TransactionItem } from "../TransactionItem";
+import type { Transaction } from "../../interfaces/transaction";
+import type { Category } from "../../interfaces/categories";
+import { Link } from "@tanstack/react-router";
 
-export const RecentTransactions = () => {
-    const { transactions, categories } = useContext(FinanceContext);
+interface RecentTransactionsProps {
+    transactions: Transaction[];
+    categories: Category[];
+}
 
+export const RecentTransactions = ({ transactions, categories }: RecentTransactionsProps) => {
     const recentTransactions = [...transactions]
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, 5);
@@ -23,11 +27,12 @@ export const RecentTransactions = () => {
                     <TransactionItem key={transaction.id} transaction={transaction} categories={categories} />
                 ))}
             </div>
-
-            <button className="mt-6 flex max-w-full cursor-pointer items-center gap-2 text-left text-sm font-semibold text-emerald-700 transition hover:text-emerald-800">
-                <span className="min-w-0">Ver todas as movimentações</span>
-                <ArrowRight className="size-4 shrink-0" />
-            </button>
+            <Link to="/transactions">
+                <button className="mt-6 flex max-w-full cursor-pointer items-center gap-2 text-left text-sm font-semibold text-emerald-700 transition hover:text-emerald-800">
+                    <span className="min-w-0">Ver todas as movimentações</span>
+                    <ArrowRight className="size-4 shrink-0" />
+                </button>
+            </Link>
         </section>
     );
 };

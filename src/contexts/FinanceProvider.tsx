@@ -14,13 +14,22 @@ export const FinanceProvider = ({ children }: FinanceProviderProps) => {
     const [categories, setCategories] = useState<Category[]>(mockCategories);
 
     const currentDate = new Date();
+
     const [selectedMonth, setSelectedMonth] = useState(currentDate.getMonth());
     const [selectedYear, setSelectedYear] = useState(currentDate.getFullYear());
-    
-    const income = transactions.filter((transaction) => transaction.type === "income");
+
+    const filteredTransactions = transactions.filter((transaction) => {
+        const [year, month] = transaction.date.split("-").map(Number);
+
+        return month === selectedMonth + 1 && year === selectedYear;
+    });
+
+    const income = filteredTransactions.filter((transaction) => transaction.type === "income");
+
     const totalIncome = income.reduce((sum, transaction) => sum + transaction.value, 0);
 
-    const expenses = transactions.filter((transaction) => transaction.type === "expense");
+    const expenses = filteredTransactions.filter((transaction) => transaction.type === "expense");
+
     const totalExpenses = expenses.reduce((sum, transaction) => sum + transaction.value, 0);
 
     const expensesByCategory = categories.map((category) => {
@@ -35,12 +44,6 @@ export const FinanceProvider = ({ children }: FinanceProviderProps) => {
             value: total,
             percentage,
         };
-    });
-
-    const filteredTransactions = transactions.filter((transaction) => {
-        const [year, month] = transaction.date.split("-").map(Number);
-
-        return month === selectedMonth + 1 && year === selectedYear;
     });
 
     const balance = totalIncome - totalExpenses;

@@ -14,7 +14,22 @@ export const Route = createFileRoute("/_app/")({
 });
 
 function Dashboard() {
-    const { totalIncome, totalExpenses, balance } = useContext(FinanceContext);
+    const { totalIncome, totalExpenses, balance, transactions, categories, selectedMonth, selectedYear } =
+        useContext(FinanceContext);
+
+    const filteredTransactions = transactions.filter((transaction) => {
+        const [year, month] = transaction.date.split("-");
+
+        const matchesMonth = Number(month) === selectedMonth + 1;
+        const matchesYear = Number(year) === selectedYear;
+
+        return matchesMonth && matchesYear;
+    });
+
+    const recentTransactions = [...filteredTransactions]
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 5);
+
     return (
         <>
             <div className="flex flex-col gap-6 px-5 py-8 sm:px-8">
@@ -48,7 +63,7 @@ function Dashboard() {
                 </div>
                 <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
                     <ExpensesByCategory />
-                    <RecentTransactions />
+                    <RecentTransactions transactions={recentTransactions} categories={categories} />
                 </div>
             </div>
         </>
