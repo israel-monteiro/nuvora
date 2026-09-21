@@ -66,7 +66,7 @@ function RouteComponent() {
     };
 
     return (
-        <div className="flex flex-col gap-6 px-5 py-8 sm:px-8">
+        <div className="flex flex-col gap-6 px-5 py-8 sm:px-8 ">
             <PageHeader title="Movimentações" subtitle="Acompanhe suas receitas e despesas">
                 <NewTransactionButton />
             </PageHeader>
@@ -79,15 +79,17 @@ function RouteComponent() {
                 onTypeChange={handleTypeChange}
                 onCategoryChange={handleCategoryChange}
             />
-            <TransactionTable transactions={currentTransactions} categories={categories} />
-            <TransactionPagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                totalTransactions={totalTransactions}
-                startIndex={startIndex}
-                endIndex={endIndex}
-                onPageChange={handlePageChange}
-            />
+            <div className="rounded-xl border border-gray-200 bg-white px-3 shadow-sm">
+                <TransactionTable transactions={currentTransactions} categories={categories} />
+                <TransactionPagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    totalTransactions={totalTransactions}
+                    startIndex={startIndex}
+                    endIndex={endIndex}
+                    onPageChange={handlePageChange}
+                />
+            </div>
         </div>
     );
 }

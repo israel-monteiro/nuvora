@@ -72,8 +72,8 @@ export const TransactionTableRow = ({ transaction, categories }: TransactionTabl
             </td>
 
             {/* Ações */}
-            <td className="px-5 py-2.5">
-                <div className="flex items-center gap-4">
+            <td className="px-5 py-2.5 flex-1">
+                <div className="flex items-center justify-center gap-4">
                     <button
                         type="button"
                         aria-label="Editar movimentação"
