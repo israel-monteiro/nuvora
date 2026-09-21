@@ -1,4 +1,5 @@
 import logoNuvora from "@/assets/images/logo/logo-nuvora.png";
+import { Link } from "@tanstack/react-router";
 import { House, ArrowLeftRight, Tag, Settings, User, X } from "lucide-react";
 
 interface SidebarProps {
@@ -69,14 +70,14 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                             </li>
 
                             <li>
-                                <a
-                                    href="/movimentacoes"
+                                <Link
+                                    to="/transactions"
                                     onClick={onClose}
                                     className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:font-bold hover:text-slate-900"
                                 >
                                     <ArrowLeftRight className="size-5 group-hover:stroke-3" />
                                     Movimentações
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
