@@ -59,21 +59,36 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     <nav>
                         <ul className="flex flex-col gap-2">
                             <li>
-                                <a
-                                    href="/"
+                                <Link
+                                    to="/"
                                     onClick={onClose}
-                                    className="flex items-center gap-4 rounded-lg bg-[#F0F8F5] px-4 py-3 text-sm font-bold text-[#087A5B]"
+                                    activeOptions={{ exact: true }}
+                                    className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition"
+                                    activeProps={{
+                                        className: "bg-[#F0F8F5] font-bold text-[#087A5B]",
+                                    }}
+                                    inactiveProps={{
+                                        className:
+                                            "font-medium text-slate-600 hover:bg-slate-50 hover:font-bold hover:text-slate-900",
+                                    }}
                                 >
-                                    <House className="size-5 stroke-3" />
+                                    <House className="size-5 group-hover:stroke-3" />
                                     Dashboard
-                                </a>
+                                </Link>
                             </li>
 
                             <li>
                                 <Link
                                     to="/transactions"
                                     onClick={onClose}
-                                    className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:font-bold hover:text-slate-900"
+                                    className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition"
+                                    activeProps={{
+                                        className: "bg-[#F0F8F5] font-bold text-[#087A5B]",
+                                    }}
+                                    inactiveProps={{
+                                        className:
+                                            "font-medium text-slate-600 hover:bg-slate-50 hover:font-bold hover:text-slate-900",
+                                    }}
                                 >
                                     <ArrowLeftRight className="size-5 group-hover:stroke-3" />
                                     Movimentações
@@ -81,14 +96,21 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                             </li>
 
                             <li>
-                                <a
-                                    href="/categorias"
+                                <Link
+                                    to="/"
                                     onClick={onClose}
-                                    className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:font-bold hover:text-slate-900"
+                                    className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition"
+                                    activeProps={{
+                                        className: "bg-[#F0F8F5] font-bold text-[#087A5B]",
+                                    }}
+                                    inactiveProps={{
+                                        className:
+                                            "font-medium text-slate-600 hover:bg-slate-50 hover:font-bold hover:text-slate-900",
+                                    }}
                                 >
                                     <Tag className="size-5 group-hover:stroke-3" />
                                     Categorias
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
