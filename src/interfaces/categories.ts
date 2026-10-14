@@ -5,6 +5,11 @@ export interface Category {
     name: string;
     color: string;
     icon: LucideIcon;
+    type: "income" | "expense";
+}
+export interface CategorySummary extends Category {
+    total: number;
+    transactionCount: number;
 }
 export interface ExpenseByCategory extends Category {
     value: number;

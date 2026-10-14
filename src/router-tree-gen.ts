@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './pages/__root'
 import { Route as AppLayoutRouteImport } from './pages/_app/layout'
 import { Route as AppIndexRouteImport } from './pages/_app/index'
+import { Route as AppCategoriesIndexRouteImport } from './pages/_app/categories/index'
 import { Route as AppTransactionsIndexRouteImport } from './pages/_app/transactions/index'
 
 const AppLayoutRoute = AppLayoutRouteImport.update({
@@ -22,6 +23,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppLayoutRoute,
 } as any)
+const AppCategoriesIndexRoute = AppCategoriesIndexRouteImport.update({
+  id: '/categories/',
+  path: '/categories/',
+  getParentRoute: () => AppLayoutRoute,
+} as any)
 const AppTransactionsIndexRoute = AppTransactionsIndexRouteImport.update({
   id: '/transactions/',
   path: '/transactions/',
@@ -30,24 +36,32 @@ const AppTransactionsIndexRoute = AppTransactionsIndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
+  '/categories/': typeof AppCategoriesIndexRoute
   '/transactions/': typeof AppTransactionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppIndexRoute
+  '/categories': typeof AppCategoriesIndexRoute
   '/transactions': typeof AppTransactionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppLayoutRouteWithChildren
   '/_app/': typeof AppIndexRoute
+  '/_app/categories/': typeof AppCategoriesIndexRoute
   '/_app/transactions/': typeof AppTransactionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/transactions/'
+  fullPaths: '/' | '/categories/' | '/transactions/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/transactions'
-  id: '__root__' | '/_app' | '/_app/' | '/_app/transactions/'
+  to: '/' | '/categories' | '/transactions'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/_app/'
+    | '/_app/categories/'
+    | '/_app/transactions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -70,6 +84,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }
+    '/_app/categories/': {
+      id: '/_app/categories/'
+      path: '/categories'
+      fullPath: '/categories/'
+      preLoaderRoute: typeof AppCategoriesIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
     '/_app/transactions/': {
       id: '/_app/transactions/'
       path: '/transactions'
@@ -82,11 +103,13 @@ declare module '@tanstack/react-router' {
 
 interface AppLayoutRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
+  AppCategoriesIndexRoute: typeof AppCategoriesIndexRoute
   AppTransactionsIndexRoute: typeof AppTransactionsIndexRoute
 }
 
 const AppLayoutRouteChildren: AppLayoutRouteChildren = {
   AppIndexRoute: AppIndexRoute,
+  AppCategoriesIndexRoute: AppCategoriesIndexRoute,
   AppTransactionsIndexRoute: AppTransactionsIndexRoute,
 }
 

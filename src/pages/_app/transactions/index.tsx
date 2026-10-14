@@ -6,13 +6,14 @@ import { TransactionTable } from "../../../components/TransactionTable";
 import { useContext, useState } from "react";
 import { FinanceContext } from "../../../contexts/FinanceContext";
 import { TransactionPagination } from "../../../components/TransactionPagination";
+import { CalendarButton } from "../../../components/CalendarButton";
 
 export const Route = createFileRoute("/_app/transactions/")({
     component: RouteComponent,
 });
 
 function RouteComponent() {
-    const { transactions, categories } = useContext(FinanceContext);
+    const { filteredTransactions, categories } = useContext(FinanceContext);
 
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState("");
@@ -21,7 +22,7 @@ function RouteComponent() {
 
     const transactionsPerPage = 10;
 
-    const filteredTransactions = transactions.filter((transaction) => {
+    const visibleTransactions = filteredTransactions.filter((transaction) => {
         const matchesSearch = transaction.description.toLowerCase().includes(search.toLowerCase());
 
         const matchesType = type === "" || transaction.type === type;
@@ -33,7 +34,7 @@ function RouteComponent() {
         }
     });
 
-    const sortedTransactions = [...filteredTransactions].sort((a, b) => b.date.localeCompare(a.date));
+    const sortedTransactions = [...visibleTransactions].sort((a, b) => b.date.localeCompare(a.date));
 
     const startIndex = (currentPage - 1) * transactionsPerPage;
     const endIndex = startIndex + transactionsPerPage;
@@ -68,6 +69,7 @@ function RouteComponent() {
     return (
         <div className="flex flex-col gap-6 px-5 py-8 sm:px-8 ">
             <PageHeader title="Movimentações" subtitle="Acompanhe suas receitas e despesas">
+                <CalendarButton />
                 <NewTransactionButton />
             </PageHeader>
             <TransactionFilters

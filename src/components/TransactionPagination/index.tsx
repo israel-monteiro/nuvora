@@ -7,6 +7,7 @@ interface TransactionPaginationProps {
     startIndex: number;
     endIndex: number;
     onPageChange: (page: number) => void;
+    itemLabel?: string;
 }
 
 export const TransactionPagination = ({
@@ -16,12 +17,13 @@ export const TransactionPagination = ({
     startIndex,
     endIndex,
     onPageChange,
+    itemLabel = "movimentações",
 }: TransactionPaginationProps) => {
     return (
         <div className="flex items-center justify-between border-t border-gray-200 px-5 py-3">
             <p className="text-sm text-gray-400">
                 Mostrando {totalTransactions === 0 ? 0 : startIndex + 1} a {Math.min(endIndex, totalTransactions)} de{" "}
-                {totalTransactions} movimentações
+                {totalTransactions} {itemLabel}
             </p>
 
             <div className="flex items-center gap-2">

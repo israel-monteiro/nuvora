@@ -217,7 +217,7 @@ export const transactions: Transaction[] = [
         description: "Freelance",
         value: 800,
         type: "income",
-        categoryId: 6,
+        categoryId: 7,
         date: "2026-09-20",
     },
     {
@@ -265,7 +265,7 @@ export const transactions: Transaction[] = [
         description: "Freelance",
         value: 1250,
         type: "income",
-        categoryId: 6,
+        categoryId: 7,
         date: "2026-09-28",
     },
     {

@@ -97,7 +97,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
                             <li>
                                 <Link
-                                    to="/"
+                                    to="/categories"
                                     onClick={onClose}
                                     className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition"
                                     activeProps={{
